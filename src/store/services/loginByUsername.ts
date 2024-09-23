@@ -9,7 +9,7 @@ export interface loginByUsernameProps {
 }
 
 export interface UserData {
-    token: string;
+    accessToken: string;
 }
 
 export const loginByUsername = createAsyncThunk<UserData, loginByUsernameProps, ThunkConfig<string>>(
@@ -18,15 +18,14 @@ export const loginByUsername = createAsyncThunk<UserData, loginByUsernameProps, 
         const { extra, dispatch, rejectWithValue } = thunkAPI;
 
         try {
-            // const token = localStorage.getItem(USER_LOCALSTORAGE_KEY) || ''
-
             const response = await extra.api.post('/auth/login', AuthData);
-            // const response = await extra.api.get('/health');
 
             if (!response.data) {
                 throw new Error();
             }
+
             dispatch(UserSliceActions.setAuth(response.data));
+
             return response.data;
         } catch (e) {
             console.log(e);

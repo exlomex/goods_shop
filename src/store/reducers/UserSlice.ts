@@ -12,7 +12,8 @@ export const UserSlice = createSlice({
     reducers: {
         setAuth: (state: UserSliceSchema, action: PayloadAction<UserData>) => {
             state.isAuth = true;
-            localStorage.setItem(USER_LOCALSTORAGE_KEY, action.payload.token);
+            console.log(1313131321, action.payload);
+            localStorage.setItem(USER_LOCALSTORAGE_KEY, action.payload.accessToken);
         },
         logout: (state: UserSliceSchema) => {
             state.isAuth = false;

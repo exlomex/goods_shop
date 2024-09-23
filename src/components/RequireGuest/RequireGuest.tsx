@@ -13,7 +13,7 @@ export function RequireGuest({ children }: RequireAuthProps) {
 
     if (auth) {
         return (
-            <Navigate to={'/about'} state={{ from: location }} replace />
+            <Navigate to={'/'} state={{ from: location }} replace />
         );
     }
 

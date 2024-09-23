@@ -1,6 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import {MainPage} from "@/pages/MainPage";
 import {LoginPage} from "@/pages/LoginPage";
+import {RequireGuest} from "@/components/RequireGuest";
+import {GoodPage} from "@/pages/GoodPage";
 
 export const AppRouter = () => (
         <Routes>
@@ -8,7 +10,12 @@ export const AppRouter = () => (
                 <MainPage/>
             }/>
             <Route path="/login" element={
-                <LoginPage/>
+                <RequireGuest>
+                    <LoginPage/>
+                </RequireGuest>
+            }/>
+            <Route path="/goods/:id" element={
+                <GoodPage/>
             }/>
         </Routes>
 );

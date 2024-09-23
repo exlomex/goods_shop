@@ -4,11 +4,13 @@ import {StateSchema, ThunkExtraArg} from './StateSchema';
 import {LoginFormReducer} from "../reducers/LoginFormSlice";
 import {UserSliceReducer} from "../reducers/UserSlice";
 import {$api} from "@/api/Api";
+import {rtkApi} from "@/api/rtkApi";
 
 export function createReduxStore(initialState?: StateSchema) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         loginForm: LoginFormReducer,
         user: UserSliceReducer,
+        [rtkApi.reducerPath]: rtkApi.reducer
     };
 
     const extraArg: ThunkExtraArg = {
@@ -24,8 +26,7 @@ export function createReduxStore(initialState?: StateSchema) {
                 thunk: {
                     extraArgument: extraArg,
                 },
-            })
-                // .concat(rtkApi.middleware),
+            }).concat(rtkApi.middleware)
     });
 }
 
