@@ -13,6 +13,10 @@ export const GoodDescription = (props: GoodDescriptionProps) => {
 
     const {isLoading, data: good} = useInfoGood({id: id})
 
+    if (!isLoading && !good) return (
+        <Box sx={{}}><Typography sx={{textAlign: 'center', fontSize: '2em', color: 'rgba(122,40,65,0.25)'}}>No data</Typography></Box>
+    )
+
     return (
         <Container component={"section"}  maxWidth="lg" sx={{display: 'flex', justifyContent: 'center', gap: '40px 40px', flexDirection: 'column'}}>
                 {good && (
@@ -45,7 +49,7 @@ export const GoodDescription = (props: GoodDescriptionProps) => {
 
             )}
 
-            <GoodReviews id={id}/>
+            {!isLoading && <GoodReviews id={id}/>}
         </Container>
     )
 };
