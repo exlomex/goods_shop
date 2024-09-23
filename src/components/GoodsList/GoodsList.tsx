@@ -16,7 +16,10 @@ export const GoodsList = () => {
     }
 
     return (
-        <Container component={"section"}  maxWidth="lg" sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '40px 40px'}}>
+        <Container
+            component={"section"}  maxWidth="lg"
+            sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '40px 40px', flexWrap: 'wrap'}}
+        >
             {goods && goods.map(good => (
                 <Box
                     key={good.id}
