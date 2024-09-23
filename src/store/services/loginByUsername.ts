@@ -20,11 +20,8 @@ export const loginByUsername = createAsyncThunk<UserData, loginByUsernameProps, 
         try {
             // const token = localStorage.getItem(USER_LOCALSTORAGE_KEY) || ''
 
-            const response = await extra.api.post('/auth/login', AuthData, {
-                // headers: {
-                //     Authorization: `Bearer ${token}`
-                // },
-            });
+            const response = await extra.api.post('/auth/login', AuthData);
+            // const response = await extra.api.get('/health');
 
             if (!response.data) {
                 throw new Error();

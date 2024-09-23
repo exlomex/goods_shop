@@ -4,18 +4,13 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useSelector } from 'react-redux';
-import React, { ChangeEvent, SyntheticEvent, useCallback } from 'react';
+import React, { ChangeEvent, useCallback } from 'react';
 import { loginByUsername, loginByUsernameProps } from '@/store/services/loginByUsername';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { getLoginIsloading, getLoginPassword, getLoginUsername } from '@/store/selectors/getLoginValues';
 import { LoginFormActions } from '@/store/reducers/LoginFormSlice';
 
-interface LoginFormProps {
-    className?: string;
-}
-
-export const LoginForm = (props: LoginFormProps) => {
-    const { className } = props;
+export const LoginForm = () => {
 
     const userPassword = useSelector(getLoginPassword);
     const userUsername = useSelector(getLoginUsername);
@@ -43,7 +38,6 @@ export const LoginForm = (props: LoginFormProps) => {
     }
 
     return (
-
             <Container component="main" maxWidth="xs">
                 <Box
                     sx={{
