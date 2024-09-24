@@ -12,7 +12,7 @@ export const GoodsList = () => {
             sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '40px 40px', flexWrap: 'wrap'}}
         >
             {goods && goods.map(good => (
-                <Good id={good.id} title={good.title} price={good.price}/>
+                <Good id={good.id} title={good.title} price={good.price} image={good.image} key={good.id}/>
             ))}
         </Container>
     )

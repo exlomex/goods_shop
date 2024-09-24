@@ -32,7 +32,12 @@ export const GoodDescription = (props: GoodDescriptionProps) => {
                             height: '400px',
                             bgcolor: theme.palette.goodBg,
                             borderRadius: '12px'
-                        }}></Box>
+                        }}>
+                            {good.image &&
+                                <Box component={'img'} src={`data:image/jpg;base64,${good.image}`} alt=""
+                                     sx={{ height: '100%', width: '100%', objectFit: 'cover', borderRadius: '12px'}}
+                            />}
+                        </Box>
                         <Box>
                             <Typography sx={{
                                 fontSize: '2em',

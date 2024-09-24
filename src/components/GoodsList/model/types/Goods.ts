@@ -5,4 +5,5 @@ export interface Good {
     title: string;
     price: number
     reviews: Review[]
+    image: string | null
 }

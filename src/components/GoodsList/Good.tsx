@@ -3,9 +3,10 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import {useNavigate} from "react-router-dom";
 import {useTheme} from "@mui/material";
+import {useEffect} from "react";
 
 export const Good = (props: Partial<GoodType>) => {
-    const { id, title, price } = props;
+    const { id, title, price, image } = props;
 
     const theme = useTheme()
 
@@ -38,6 +39,7 @@ export const Good = (props: Partial<GoodType>) => {
                     transition: 'transform .3s ease',
                     ':hover': {transform: 'scale(0.95)'},
                 }}>
+                {image && <Box component={'img'} src={`data:image/jpg;base64,${image}`} alt="" sx={{width: '100%', height: '260px', borderRadius: '12px'}}/>}
             </Box>
             <Typography
                 sx={{

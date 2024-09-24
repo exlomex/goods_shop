@@ -53,7 +53,7 @@ export const GoodReviews = (props: GoodReviewsProps) => {
             {reviews && reviews.length === 0 && <Typography>Ничего не найдено</Typography>}
 
             {reviews && reviews.map(review => (
-                <Review rating={review.rating} id={review.id} description={review.description} userAccount={review.userAccount}/>
+                <Review key={review.id} rating={review.rating} id={review.id} description={review.description} userAccount={review.userAccount}/>
             ))}
 
             <Box
