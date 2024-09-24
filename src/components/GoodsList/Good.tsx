@@ -2,9 +2,12 @@ import {Good as GoodType} from "./model/types/Goods";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import {useNavigate} from "react-router-dom";
+import {useTheme} from "@mui/material";
 
 export const Good = (props: Partial<GoodType>) => {
     const { id, title, price } = props;
+
+    const theme = useTheme()
 
     const navigate = useNavigate()
 
@@ -30,7 +33,7 @@ export const Good = (props: Partial<GoodType>) => {
 
                     width: '100%',
                     height: '260px',
-                    bgcolor: '#3333',
+                    bgcolor: theme.palette.goodBg,
                     borderRadius: '12px',
                     transition: 'transform .3s ease',
                     ':hover': {transform: 'scale(0.95)'},
@@ -40,7 +43,7 @@ export const Good = (props: Partial<GoodType>) => {
                 sx={{
                     mt: '10px',
                     fontSize: '1.25em',
-                    color: '#7A2841',
+                    color: theme.palette.primary.main,
                     textAlign: 'center'
                 }}
             >
@@ -50,7 +53,7 @@ export const Good = (props: Partial<GoodType>) => {
                 sx={{
                     mt: '10px',
                     fontSize: '1.125em',
-                    color: '#D0B0AB',
+                    color: theme.palette.secondary.main,
                     mb: '10px'
                 }}>
                 {price} руб.

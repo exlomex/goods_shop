@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import {StoreProvider} from "@/components/Providers/StoreProvider";
 import {BrowserRouter} from "react-router-dom";
 import {ThemeProvider} from "@mui/material";
+import {MUITheme} from "@/consts/MUITheme";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -13,9 +14,9 @@ const root = ReactDOM.createRoot(
 root.render(
     <BrowserRouter>
         <StoreProvider>
-            {/*<ThemeProvider theme={MUItheme}>*/}
+            <ThemeProvider theme={MUITheme}>
                 <App />
-            {/*</ThemeProvider>*/}
+            </ThemeProvider>
         </StoreProvider>
     </BrowserRouter>
 );

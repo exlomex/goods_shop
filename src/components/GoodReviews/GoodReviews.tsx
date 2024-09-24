@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import {newReview} from "@/components/GoodReviews/model/types/Review";
 import {useAllGoodReviews} from "@/components/GoodReviews/api/AllGoodReviewsApi";
 import Typography from "@mui/material/Typography";
-import { Rating} from "@mui/material";
+import {Rating, useTheme} from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import {useSelector} from "react-redux";
@@ -17,6 +17,8 @@ interface GoodReviewsProps {
 
 export const GoodReviews = (props: GoodReviewsProps) => {
     const { id } = props;
+
+    const theme = useTheme()
 
     const {isLoading, data: reviews} = useAllGoodReviews({id: id})
 
@@ -42,7 +44,7 @@ export const GoodReviews = (props: GoodReviewsProps) => {
     return (
         <Box>
             <Typography sx={{
-                color: '#7A2841',
+                color: theme.palette.primary.main,
                 fontSize: '1.35em',
                 mb: '10px'}}
             > Отзывы:
@@ -53,9 +55,11 @@ export const GoodReviews = (props: GoodReviewsProps) => {
             {reviews && reviews.map(review => (
                 <Review rating={review.rating} id={review.id} description={review.description} userAccount={review.userAccount}/>
             ))}
+
             <Box
                 sx={{display: 'flex', flexDirection: 'column', alignItems: 'end'}}>
                 <TextField
+                    color={"primary"}
                     value={description}
                     onChange={e => setDescription(e.target.value)}
                     placeholder={'Введите отзыв'}
@@ -76,16 +80,16 @@ export const GoodReviews = (props: GoodReviewsProps) => {
                         onClick={handleReviewSubmit}
                         disabled={!isAuth}
                         sx={{
+                            bgcolor: theme.palette.primary.main,
+                            color: theme.palette.fontColors.white,
                             mt: 1,
-                            color: '#fff',
-                            bgcolor: '#FF636C',
                             boxShadow: 'none',
-                            ':hover': { bgcolor: '#ffb4b9', boxShadow: 'none' },
+                            ':hover': { bgcolor: theme.palette.hover.mediumLight, boxShadow: 'none' },
                             fontWeight: '500',
                             borderRadius: '8px',
                             textTransform: 'none',
                             padding: '6px 15px',
-                            ':disabled': {bgcolor: 'rgba(255,99,108,0.22)'}
+                            ':disabled': {bgcolor: theme.palette.hover.light, color: theme.palette.secondary.main}
                         }}>Отправить</Button>
                 </Box>
             </Box>

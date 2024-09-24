@@ -9,6 +9,7 @@ import { loginByUsername, loginByUsernameProps } from '@/store/services/loginByU
 import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { getLoginIsloading, getLoginPassword, getLoginUsername } from '@/store/selectors/getLoginValues';
 import { LoginFormActions } from '@/store/reducers/LoginFormSlice';
+import {useTheme} from "@mui/material";
 
 export const LoginForm = () => {
 
@@ -25,6 +26,8 @@ export const LoginForm = () => {
     const onUsernameChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         dispatch(LoginFormActions.setLogin(e.target.value));
     }, [dispatch]);
+
+    const theme = useTheme()
 
     function handleSubmit(e: React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
@@ -52,6 +55,7 @@ export const LoginForm = () => {
                     </Typography>
                     <Box component="form" noValidate sx={{ mt: 1 }}>
                         <TextField
+                            color="primary"
                             margin="normal"
                             required
                             fullWidth
@@ -81,12 +85,12 @@ export const LoginForm = () => {
                             type="submit"
                             fullWidth
                             variant="contained"
+                            color={"primary"}
                             sx={{
                                 mt: 1,
-                                color: '#fff',
-                                bgcolor: '#FF636C',
+                                color: theme.palette.fontColors.white,
                                 boxShadow: 'none',
-                                ':hover': { bgcolor: '#ffb4b9', boxShadow: 'none' },
+                                ':hover': { bgcolor: theme.palette.hover.mediumLight, boxShadow: 'none' },
                                 fontWeight: '500',
                                 borderRadius: '8px',
                             }}

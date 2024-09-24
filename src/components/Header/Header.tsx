@@ -1,6 +1,6 @@
 import goodsLogo from '@/assets/goods.svg'
 import { useNavigate} from "react-router-dom";
-import {AppBar, SxProps, Theme} from "@mui/material";
+import {AppBar, SxProps, Theme, useTheme} from "@mui/material";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -19,6 +19,8 @@ export const Header = () => {
         {title: 'Каталог товаров', to: '/'}
     ]
 
+    const theme = useTheme();
+
     const navigate = useNavigate();
     const dispatch = useAppDispatch()
     const isAuth = useSelector(getUserAuth)
@@ -32,15 +34,15 @@ export const Header = () => {
     }, [])
 
     const AuthButtonStyles: SxProps<Theme> = {
+        color: theme.palette.primary.main,
         width: '150px',
         mt: 1,
-        color: '#830e0e',
         bgcolor: 'transparent',
         boxShadow: 'none',
-        ':hover': { bgcolor: 'rgba(131,14,14,0.05)', boxShadow: 'none' },
+        ':hover': { bgcolor: theme.palette.hover.light, boxShadow: 'none' },
         fontWeight: '500',
         borderRadius: '100px',
-        border: '1px solid #830E0EFF'
+        border: `1px solid ${theme.palette.primary.main}`
     }
 
     const AuthButton = ({children, onClick}: {children: ReactNode, onClick: () => void}) => (
@@ -65,17 +67,17 @@ export const Header = () => {
             <Box
                 sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0'}}
             >
-                    <MuiLink component={RouterLink} to="/" sx={{width: '80px'}}>
-                        <img src={goodsLogo} alt="goods" />
+                    <MuiLink component={RouterLink} to="/" sx={{width: '80px', m: 'auto 0'}}>
+                        <Box component={'img'} src={goodsLogo} alt="goods" sx={{display: 'block'}}/>
                     </MuiLink>
                     <nav>
                         {navItems.map((item, index) => (
                             <MuiLink component={RouterLink} key={index} to={item.to} sx={{textDecoration: 'none'}}>
                                 <Typography
+                                    color={'main'}
                                     sx={{
                                         transition: 'all, 0.2s, easy',
-                                        color: '#830e0e',
-                                        ':hover': { color: 'rgba(131,14,14,0.64)'},
+                                        ':hover': { color: theme.palette.hover.darker },
                                     }}>{item.title}
                                 </Typography>
                             </MuiLink>
