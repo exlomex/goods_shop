@@ -4,7 +4,7 @@ export const rtkApi = createApi({
     tagTypes: ['Review'],
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'https://test-tonidimon.amvera.io',
+        baseUrl: 'bba3lu4guhgbm1dkkfc8.containers.yandexcloud.net',
     }),
     endpoints: (builder) => ({}),
 });

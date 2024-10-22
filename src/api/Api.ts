@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const $api = axios.create({
-    baseURL: 'https://test-tonidimon.amvera.io',
+    baseURL: 'https://bba3lu4guhgbm1dkkfc8.containers.yandexcloud.net',
 });

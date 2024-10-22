@@ -70,19 +70,21 @@ export const Header = () => {
                     <MuiLink component={RouterLink} to="/" sx={{width: '80px', m: 'auto 0'}}>
                         <Box component={'img'} src={goodsLogo} alt="goods" sx={{display: 'block'}}/>
                     </MuiLink>
-                    <nav>
-                        {navItems.map((item, index) => (
-                            <MuiLink component={RouterLink} key={index} to={item.to} sx={{textDecoration: 'none'}}>
-                                <Typography
-                                    color={'main'}
-                                    sx={{
-                                        transition: 'all, 0.2s, easy',
-                                        ':hover': { color: theme.palette.hover.darker },
-                                    }}>{item.title}
-                                </Typography>
-                            </MuiLink>
-                        ))}
-                    </nav>
+
+                    {/*/!* optional *!/*/}
+                    {/*<nav>*/}
+                    {/*    {navItems.map((item, index) => (*/}
+                    {/*        <MuiLink component={RouterLink} key={index} to={item.to} sx={{textDecoration: 'none'}}>*/}
+                    {/*            <Typography*/}
+                    {/*                color={'main'}*/}
+                    {/*                sx={{*/}
+                    {/*                    transition: 'all, 0.2s, easy',*/}
+                    {/*                    ':hover': { color: theme.palette.hover.darker },*/}
+                    {/*                }}>{item.title}*/}
+                    {/*            </Typography>*/}
+                    {/*        </MuiLink>*/}
+                    {/*    ))}*/}
+                    {/*</nav>*/}
 
                     {
                         !isAuth ? (<AuthButton onClick={handleAuthButtonClick}>Войти</AuthButton>)
