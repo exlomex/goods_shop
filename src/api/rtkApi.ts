@@ -4,7 +4,7 @@ export const rtkApi = createApi({
     tagTypes: ['Review'],
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'bba3lu4guhgbm1dkkfc8.containers.yandexcloud.net',
+        baseUrl: 'https://bbaco92isfvukfbtqvrh.containers.yandexcloud.net',
     }),
     endpoints: (builder) => ({}),
 });

@@ -5,12 +5,14 @@ import {LoginFormReducer} from "../reducers/LoginFormSlice";
 import {UserSliceReducer} from "../reducers/UserSlice";
 import {$api} from "@/api/Api";
 import {rtkApi} from "@/api/rtkApi";
+import {RegisterFormReducer} from "@/store/reducers/RegisterFormSlice";
 
 export function createReduxStore(initialState?: StateSchema) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         loginForm: LoginFormReducer,
+        register: RegisterFormReducer,
         user: UserSliceReducer,
-        [rtkApi.reducerPath]: rtkApi.reducer
+        [rtkApi.reducerPath]: rtkApi.reducer,
     };
 
     const extraArg: ThunkExtraArg = {

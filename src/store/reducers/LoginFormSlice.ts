@@ -30,7 +30,6 @@ export const LoginFormSlice = createSlice({
             .addCase(loginByUsername.rejected, (state: LoginFormSliceSchema, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
-
             });
     },
 });

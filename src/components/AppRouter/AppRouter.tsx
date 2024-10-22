@@ -3,6 +3,7 @@ import {MainPage} from "@/pages/MainPage";
 import {LoginPage} from "@/pages/LoginPage";
 import {RequireGuest} from "@/components/RequireGuest";
 import {GoodPage} from "@/pages/GoodPage";
+import {RegisterPage} from "@/pages/RegisterPage";
 
 export const AppRouter = () => (
         <Routes>
@@ -16,6 +17,11 @@ export const AppRouter = () => (
             }/>
             <Route path="/goods/:id" element={
                 <GoodPage/>
+            }/>
+            <Route path="/register" element={
+                <RequireGuest>
+                    <RegisterPage/>
+                </RequireGuest>
             }/>
         </Routes>
 );

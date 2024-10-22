@@ -10,6 +10,8 @@ import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { getLoginIsloading, getLoginPassword, getLoginUsername } from '@/store/selectors/getLoginValues';
 import { LoginFormActions } from '@/store/reducers/LoginFormSlice';
 import {useTheme} from "@mui/material";
+import { Link as RouterLink } from 'react-router-dom';
+import { Link as MuiLink } from '@mui/material';
 
 export const LoginForm = () => {
 
@@ -60,7 +62,7 @@ export const LoginForm = () => {
                             required
                             fullWidth
                             id="login"
-                            label="Your login"
+                            label="Ваш логин"
                             name="login"
                             autoComplete="login"
                             autoFocus
@@ -72,7 +74,7 @@ export const LoginForm = () => {
                             required
                             fullWidth
                             name="password"
-                            label="Password"
+                            label="Пароль"
                             type="password"
                             id="password"
                             autoComplete="current-password"
@@ -99,9 +101,10 @@ export const LoginForm = () => {
                             Войти
                         </Button>
                     </Box>
-                    <Typography component="h5" variant="h5" sx={{ fontSize: '0.875em', marginTop: '9px', color: '#525252' }}>
-                        for example: login: test1, password: test1
-                    </Typography>
+                    <Box sx={{display: 'flex', alignItems: 'center', mt: '10px', gap: '0 5px'}}>
+                        <Typography>Нет аккаунта?</Typography>
+                        <MuiLink component={RouterLink} to={'/register'}>Регистрация</MuiLink>
+                    </Box>
                 </Box>
             </Container>
     );
