@@ -3,11 +3,11 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { ReactElement } from 'react';
 import { getUserAuth } from '@/store/selectors/getUserAuth';
 
-interface RequireAuthProps {
+interface RequireGuestProps {
     children: ReactElement;
 }
 
-export function RequireGuest({ children }: RequireAuthProps) {
+export function RequireGuest({ children }: RequireGuestProps) {
     const auth = useSelector(getUserAuth);
     const location = useLocation();
 

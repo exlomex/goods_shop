@@ -16,6 +16,7 @@ export const App = () => {
     useEffect(() => {
         if (!inited) {
             dispatch(UserSliceActions.initAuth())
+
             setInited(true)
         }
     }, [dispatch, inited]);

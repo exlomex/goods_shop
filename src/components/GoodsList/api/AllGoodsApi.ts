@@ -6,7 +6,7 @@ const AllGoodsApi = rtkApi.injectEndpoints({
         getAllGoods: build.query<Good[], null>({
             query: () => ({
                 // company
-                url: '/goods/test1',
+                url: '/goods',
             }),
             // providesTags: () => ['Board'],
         }),

@@ -1,11 +1,14 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { UserData } from '../services/loginByUsername';
-import { UserSliceSchema } from './UserSliceSchema';
-import { USER_LOCALSTORAGE_KEY } from '@/consts/localStorage';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {UserData} from '../services/loginByUsername';
+import {tokenInfoTypes, UserRoles, UserSliceSchema} from './UserSliceSchema';
+import {USER_LOCALSTORAGE_KEY} from '@/consts/localStorage';
+import {jwtDecode, JwtPayload} from "jwt-decode";
 
 const initialState: UserSliceSchema = {
     isAuth: false,
+    role: UserRoles.GUEST
 };
+
 export const UserSlice = createSlice({
     name: 'user',
     initialState,
@@ -23,6 +26,10 @@ export const UserSlice = createSlice({
             const token = localStorage.getItem(USER_LOCALSTORAGE_KEY);
             if (token) {
                 state.isAuth = true;
+
+                const tokenInfo: tokenInfoTypes = jwtDecode(token || '')
+
+                state.role = tokenInfo.role;
             }
         },
     },
