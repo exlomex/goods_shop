@@ -1,3 +1,5 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Disallow: /admin/ # Запрет индексации административных страниц
+Allow: / # Разрешить индексацию всех остальных страниц
+
+Sitemap: https://goods-shop-three.vercel.app/sitemap.xml
