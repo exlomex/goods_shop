@@ -1,6 +1,5 @@
 import Box from "@mui/material/Box";
 import {newReview} from "@/components/GoodReviews/model/types/Review";
-import {useAllGoodReviews} from "@/components/GoodReviews/api/AllGoodReviewsApi";
 import Typography from "@mui/material/Typography";
 import {Rating, useTheme} from "@mui/material";
 import TextField from "@mui/material/TextField";
@@ -10,17 +9,18 @@ import {getUserAuth} from "@/store/selectors/getUserAuth";
 import {useAddNewReview} from "@/components/GoodReviews/api/AddReviewApi";
 import {useState} from "react";
 import {Review} from "@/components/GoodReviews/Review";
+import { Review as ReviewsType } from './model/types/Review';
 
 interface GoodReviewsProps {
     id: string
+    reviews: ReviewsType[]
 }
 
 export const GoodReviews = (props: GoodReviewsProps) => {
-    const { id } = props;
+    const { id, reviews } = props;
 
     const theme = useTheme()
 
-    const {isLoading, data: reviews} = useAllGoodReviews({id: id})
 
     const isAuth = useSelector(getUserAuth)
 
@@ -53,7 +53,7 @@ export const GoodReviews = (props: GoodReviewsProps) => {
             {reviews && reviews.length === 0 && <Typography>Ничего не найдено</Typography>}
 
             {reviews && reviews.map(review => (
-                <Review key={review.id} rating={review.rating} id={review.id} description={review.description} userAccount={review.userAccount}/>
+                <Review key={review.id} rating={review.rating} id={review.id} description={review.description} user={review.user}/>
             ))}
 
             <Box

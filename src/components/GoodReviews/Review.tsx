@@ -4,14 +4,14 @@ import { Review as ReviewsType } from './model/types/Review';
 import {useTheme} from "@mui/material";
 
 export const Review = (props: ReviewsType) => {
-    const { id, description, rating, userAccount } = props;
+    const { id, description, rating, user } = props;
 
     const theme = useTheme()
 
     return (
         <Box key={id} sx={{mb: '10px'}}>
             <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
-                <Typography sx={{fontSize: '1.3em', mb: '5px', color: theme.palette.fontColors.black}}>{userAccount.firstName}</Typography>
+                <Typography sx={{fontSize: '1.3em', mb: '5px', color: theme.palette.fontColors.black}}>{user.firstName}</Typography>
                 <Typography sx={{color: theme.palette.primary.main, fontWeight: '600', fontSize: '1.25em'}}>{rating} / 5</Typography>
             </Box>
             <Typography

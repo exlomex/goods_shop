@@ -5,9 +5,9 @@ const GoodInfoApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({
         getGoodInfo: build.query<Good, {id: string}>({
             query: ({id}) => ({
-                // company
                 url: `/goods/${id}`,
             }),
+            providesTags: () => ['Review'],
         }),
     }),
 });

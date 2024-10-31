@@ -2,7 +2,7 @@ export interface Review {
     id: string;
     description: string;
     rating: number;
-    userAccount: {
+    user: {
         firstName: string;
         lastName: string;
     }

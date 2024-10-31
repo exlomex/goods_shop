@@ -34,7 +34,7 @@ export const GoodDescription = (props: GoodDescriptionProps) => {
                             borderRadius: '12px'
                         }}>
                             {good.image &&
-                                <Box component={'img'} src={`data:image/jpg;base64,${good.image}`} alt=""
+                                <Box component={'img'} src={good.image} alt=""
                                      sx={{ height: '100%', width: '100%', objectFit: 'cover', borderRadius: '12px'}}
                             />}
                         </Box>
@@ -56,7 +56,7 @@ export const GoodDescription = (props: GoodDescriptionProps) => {
 
             )}
 
-            {!isLoading && <GoodReviews id={id}/>}
+            {!isLoading && good && <GoodReviews id={id} reviews={good.reviews}/>}
         </Container>
     )
 };

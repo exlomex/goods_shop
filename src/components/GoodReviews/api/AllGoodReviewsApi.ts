@@ -8,7 +8,6 @@ const AllGoodReviewsApi = rtkApi.injectEndpoints({
                 // company
                 url: `review/good/${id}`,
             }),
-            providesTags: () => ['Review'],
         }),
     }),
 });
