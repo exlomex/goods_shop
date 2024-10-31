@@ -15,9 +15,9 @@ import { Link as MuiLink } from '@mui/material';
 
 
 export const Header = () => {
-    const navItems: {title: string, to: string}[] = [
-        {title: 'Каталог товаров', to: '/'}
-    ]
+    // const navItems: {title: string, to: string}[] = [
+    //     {title: 'Каталог товаров', to: '/'}
+    // ]
 
     const theme = useTheme();
 
@@ -68,23 +68,8 @@ export const Header = () => {
                 sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0'}}
             >
                     <MuiLink component={RouterLink} to="/" sx={{width: '80px', m: 'auto 0'}}>
-                        <Box component={'img'} src={goodsLogo} alt="goods" sx={{display: 'block'}}/>
+                        <Box component={'img'} loading={'lazy'} src={goodsLogo} alt="goods" sx={{display: 'block'}}/>
                     </MuiLink>
-
-                    {/*/!* optional *!/*/}
-                    {/*<nav>*/}
-                    {/*    {navItems.map((item, index) => (*/}
-                    {/*        <MuiLink component={RouterLink} key={index} to={item.to} sx={{textDecoration: 'none'}}>*/}
-                    {/*            <Typography*/}
-                    {/*                color={'main'}*/}
-                    {/*                sx={{*/}
-                    {/*                    transition: 'all, 0.2s, easy',*/}
-                    {/*                    ':hover': { color: theme.palette.hover.darker },*/}
-                    {/*                }}>{item.title}*/}
-                    {/*            </Typography>*/}
-                    {/*        </MuiLink>*/}
-                    {/*    ))}*/}
-                    {/*</nav>*/}
 
                     {
                         !isAuth ? (<AuthButton onClick={handleAuthButtonClick}>Войти</AuthButton>)

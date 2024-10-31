@@ -7,11 +7,11 @@ const AddReviewApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({
         addNewReview: build.mutation<null, newReview>({
             query: (body) => ({
-                url: '/review',
+                url: '/reviews',
                 method: 'POST',
                 body,
                 headers: {
-                    Authorization: `Bearer ${localStorage.getItem(USER_LOCALSTORAGE_KEY) || ''}`
+                    Auth: `Bearer ${localStorage.getItem(USER_LOCALSTORAGE_KEY) || ''}`
                 }
             }),
             invalidatesTags: ['Review'],

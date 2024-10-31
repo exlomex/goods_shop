@@ -11,7 +11,7 @@ export interface UserSliceSchema {
     role: UserRoles;
 }
 
-export interface tokenInfoTypes extends JwtPayload{
+export interface tokenInfoTypes extends JwtPayload {
     id: number,
     username: string,
     "role": UserRoles,
