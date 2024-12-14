@@ -19,12 +19,6 @@
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://goods-shop-three.vercel.app/goods/1</loc>
-        <lastmod>2024-10-31</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
         <loc>https://goods-shop-three.vercel.app/admin</loc>
         <lastmod>2024-10-31</lastmod>
         <changefreq>never</changefreq>
